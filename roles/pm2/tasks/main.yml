@@ -1,0 +1,5 @@
+---
+# tasks file for pm2
+
+- name: install pm2
+  npm: name=pm2 global=yes state=present

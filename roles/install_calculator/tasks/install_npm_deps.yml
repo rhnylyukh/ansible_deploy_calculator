@@ -1,0 +1,11 @@
+---
+
+- name: Install npm deps
+  shell: npm i
+  args:
+    chdir: /opt/{{project_name}}
+
+- name: install express
+  shell: npm install express --save
+  args:
+    chdir: /opt/{{project_name}}

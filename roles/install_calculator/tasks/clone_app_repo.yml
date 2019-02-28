@@ -1,0 +1,6 @@
+---
+- name: Clone calculator repository
+  git:
+    repo: "{{repository}}"
+    dest: /opt/{{project_name}}
+    force: yes

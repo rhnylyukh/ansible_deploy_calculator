@@ -1,0 +1,7 @@
+---
+
+- name: copy setup file nginx
+  copy: src={{ item }} dest={{ destin_folder }} mode=0555
+  loop:
+    - "default"
+  notify: Restart nginx

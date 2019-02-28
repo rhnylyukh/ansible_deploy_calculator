@@ -1,0 +1,9 @@
+---
+# tasks file for nodejsi
+
+- name: Add NodeSource repositories for Node.js.
+  shell: curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash - warn=False
+
+- name: install nodejs
+  apt: name=nodejs  state=present
+

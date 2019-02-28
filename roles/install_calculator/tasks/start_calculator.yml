@@ -1,0 +1,10 @@
+---
+- name: stop all pm2 process
+  shell: pm2 delete all
+  ignore_errors: yes
+
+- name: start calculator
+  shell: pm2 start server.js
+  args:
+    chdir: /opt/{{project_name}}
+  notify: Restart nginx

@@ -1,0 +1,4 @@
+---
+# vars file for install_calculator
+project_name: "calculator"
+repository: "https://github.com/rhnylyukh/calculator.git"

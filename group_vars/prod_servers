@@ -1,0 +1,5 @@
+
+---
+ansible_user                 : rhnylyukh
+ansible_ssh_private_key_file : /home/rhnylyukh/.ssh/ansiblekey
+environment                  : production

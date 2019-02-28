@@ -1,0 +1,13 @@
+---
+
+- name: install all pre-requirements for calculator
+  hosts: all
+  become: yes
+
+  roles:
+  - curl
+  - nodejs
+  - git
+  - nginx
+  - pm2 
+  - install_calculator 
