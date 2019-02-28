@@ -1,8 +1,0 @@
----
-# tasks file for express
-
-
-- name: install express
-  shell: npm install express --save
-  args:
-    chdir: /opt/{{project_name}}
