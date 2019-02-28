@@ -1,0 +1,44 @@
+---
+
+- name: Create an instance for calculator
+  hosts: localhost
+  gather_facts: no
+  connection: local
+  vars:
+      project_id: striped-micron-229407
+      service_account_email: "832149439293-compute@developer.gserviceaccount.com"
+      credentials_file: "/opt/ansible/striped-micron-229407-018bd8c4bff7.json"
+      zone: "us-west1-b"
+
+  tasks:
+
+    - name: create a instance
+      gce:
+        state: present
+        name: prod-calculator
+        machine_type: n1-standard-2
+        image: ubuntu-1604
+        tags:
+          - http-server
+        zone: "{{ zone }}"
+        project_id: "{{ project_id }}"
+        service_account_email: "{{ service_account_email }}"
+        credentials_file: "{{ credentials_file }}"
+        disk_size: 15
+
+    - name: wait for a couple of minutes
+      pause:
+        minutes: 1
+
+
+- name: install all pre-requirements for calculator
+  hosts: prod-calculator
+  become: yes
+
+  roles:
+  - curl
+  - nodejs
+  - git
+  - nginx
+  - pm2
+  - install_calculator
